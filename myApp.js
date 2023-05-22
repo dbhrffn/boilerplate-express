@@ -23,11 +23,10 @@ app.get("/json", (req, res) => {
 });
 
 //set up your own middleware
-app.use(function middleware(req, res, next) {
-app.use( (req, res, next)=>{
-console.log("req.method+ ’ ‘+req.path+’-’+req.ip ");
-next();
-})
+app.use(function (req, res, next) {
+  var string = req.method + " " + req.path + " - " + req.ip;
+  console.log(string);
+  next();
 });
 
 
