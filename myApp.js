@@ -23,8 +23,10 @@ app.get("/json", (req, res) => {
 });
 
 //set up your own middleware
-app.use((req, res, next) {
- console.log(req.method + " " + req.path + " - " + req.ip);
+// --> 7)  Mount the Logger middleware here
+app.use((req, res, next) => {
+ let string = `${req.method} ${req.path} - ${req.ip}`
+ console.log(string) 
   next();
 });
 
