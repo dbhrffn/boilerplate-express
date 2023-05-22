@@ -43,41 +43,40 @@ app.get('/now', (req, res, next) => {
 /** 9)  Get input from client - Route parameters */
 app.get('/:word/echo', (req, res) => {
   const { word } = req.params;
- 
   res.json({
-    "echo": word
+    echo: word
   });
 });
- 
+
 /** 10) Get input from client - Query parameters */
 // /name?first=<firstname>&last=<lastname>
 app.get("/name", (req, res) => {
-  const { first: firstName,  last: lastName} = req.query;
- 
+  const { first: firstName, last: lastName } = req.query;
+
   res.json({
     name: `${firstName} ${lastName}`
   });
 });
-   
+
 /** 11) Get ready for POST Requests - the `body-parser` */
 // place it before all the routes !
- 
+
 /** 12) Get data form POST  */
 app.post('/name', (req, res) => {
-  const { first: firstName,  last: lastName} = req.body;
- 
+  const { first: firstName, last: lastName } = req.body;
+
   res.json({
     name: `${firstName} ${lastName}`
   });
 });
- 
+
 // This would be part of the basic setup of an Express app
 // but to allow FCC to run tests, the server is already active
 /** app.listen(process.env.PORT || 3000 ); */
- 
+
 //---------- DO NOT EDIT BELOW THIS LINE --------------------
- 
- module.exports = app;
+
+module.exports = app;
 
 
 
