@@ -22,7 +22,12 @@ app.get("/json", (req, res) => {
   });
 });
 
-
+//set up your own middleware
+app.use(function middleware(req, res, next) {
+  var string = req.method + " " + req.path + " - " + req.ip;
+  console.log(string);
+  next();
+});
 
 
 
