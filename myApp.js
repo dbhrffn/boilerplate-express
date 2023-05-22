@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 
 //declare public
-// app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
 
 // use files in public
 app.use("/public", express.static(__dirname + "/public"));
