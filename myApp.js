@@ -1,6 +1,14 @@
 let express = require('express');
 let app = express();
 
+// --> 7)  Mount the Logger middleware here
+app.use(function middleware(req, res, next) {
+  var string = req.method + " " + req.path + " - " + req.ip;
+  console.log(string);
+
+  next();
+});
+
 //declare public
 app.use(express.static(__dirname + "/public"));
 
@@ -20,14 +28,6 @@ app.get("/json", (req, res) => {
   res.json({
     message: response
   });
-});
-
-//set up your own middleware
-// --> 7)  Mount the Logger middleware here
-app.use((req, res, next) => {
- let string = `${req.method} ${req.path} - ${req.ip}`
- console.log(string) 
-  next();
 });
 
 
